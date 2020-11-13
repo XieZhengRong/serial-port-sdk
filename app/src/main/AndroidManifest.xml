@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ikudot.mysdk">
+
+    <application
+        android:name=".InitApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MySdk">
+        <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".SelectSerialPortActivity" android:label="设备串口列表" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SerialPortActivity" android:theme="@style/Theme.My" android:label="串口通讯" />
+    </application>
+
+</manifest>
