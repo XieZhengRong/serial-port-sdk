@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.Serializable;
 
 /**
- * Created by Kongqw on 2017/11/13.
  * Device
  */
 

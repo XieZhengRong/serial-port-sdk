@@ -3,7 +3,6 @@ package com.ikudot.mylibrary.listener;
 import java.io.File;
 
 /**
- * Created by Kongqw on 2017/11/14.
  * 打开串口监听
  */
 

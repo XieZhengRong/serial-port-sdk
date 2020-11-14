@@ -17,7 +17,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * Created by Kongqw on 2017/11/13.
  * SerialPortManager
  */
 

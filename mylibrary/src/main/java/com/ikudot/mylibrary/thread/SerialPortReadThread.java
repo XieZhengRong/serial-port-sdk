@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by Kongqw on 2017/11/14.
  * 串口消息读取线程
  */
 
@@ -36,7 +35,7 @@ public abstract class SerialPortReadThread extends Thread {
                 Log.i(TAG, "run: ");
                 int size = mInputStream.read(mReadBuffer);
 
-                if (-1 == size || 0 >= size) {
+                if (0 >= size) {
                     return;
                 }
 

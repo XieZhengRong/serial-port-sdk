@@ -1,7 +1,6 @@
 package com.ikudot.mylibrary.listener;
 
 /**
- * Created by Kongqw on 2017/11/14.
  * 串口消息监听
  */
 

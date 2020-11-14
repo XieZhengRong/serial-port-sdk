@@ -10,15 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MySdk">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".SelectSerialPortActivity"
+            android:label="设备串口列表" >
         </activity>
-        <activity android:name=".SelectSerialPortActivity" android:label="设备串口列表" >
+        <activity
+            android:name=".SerialPortActivity"
+            android:label="串口通讯"
+            android:theme="@style/Theme.My" />
+        <activity
+            android:name=".DemoActivity"
+            android:label="串口通讯Demo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SerialPortActivity" android:theme="@style/Theme.My" android:label="串口通讯" />
     </application>
 
 </manifest>

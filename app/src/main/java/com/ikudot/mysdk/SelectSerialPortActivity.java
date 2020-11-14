@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ikudot.mylibrary.Device;
 import com.ikudot.mylibrary.SerialPortFinder;
+import com.ikudot.mylibrary.util.Cmd;
 import com.ikudot.mysdk.adapter.DeviceAdapter;
 
 import java.io.DataOutputStream;
@@ -27,7 +28,6 @@ public class SelectSerialPortActivity extends AppCompatActivity implements Adapt
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_serial_port);
         ListView listView = (ListView) findViewById(R.id.lv_devices);
-
 
         SerialPortFinder serialPortFinder = new SerialPortFinder();
 
