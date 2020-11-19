@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ikudot.mysdk">
-
     <application
         android:name=".InitApplication"
         android:allowBackup="true"
@@ -11,15 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MySdk">
         <activity
-            android:name=".SelectSerialPortActivity"
-            android:label="设备串口列表" >
-        </activity>
-        <activity
-            android:name=".SerialPortActivity"
-            android:label="串口通讯"
-            android:theme="@style/Theme.My" />
-        <activity
             android:name=".DemoActivity"
+            android:windowSoftInputMode="stateVisible"
             android:label="串口通讯Demo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,5 +19,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

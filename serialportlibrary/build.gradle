@@ -1,24 +1,19 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
 }
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
-    viewBinding {
-        enabled = true
-    }
-    dataBinding {
-        enabled = true
-    }
+
     defaultConfig {
-        applicationId "com.ikudot.mysdk"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -31,30 +26,27 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    ndkVersion '21.3.6528147'
 }
-repositories{
-    flatDir {
-        dirs 'libs'
-    }
-}
+
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation(name:'serialportlibrary-release', ext:'aar')
+
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-//    implementation project(path: ':serialportlibrary')
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-
+    // 串口
     implementation 'com.licheedev:android-serialport:2.1.2'
+
+    //rx
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     // eventbus
     implementation 'org.greenrobot:eventbus:3.2.0'
+    // 选文件的
+    implementation 'ru.bartwell:exfilepicker:2.1'
+
     // 硬件操作工具类
     implementation 'com.licheedev:hardwareutils:1.0.0'
     implementation 'com.licheedev:logplus:1.0.0'

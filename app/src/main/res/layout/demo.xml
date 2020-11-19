@@ -14,6 +14,12 @@
             android:layout_height="wrap_content"
             android:hint="请输入串口名称(ttyMT3、ttyMT2、ttyMT1、ttyMT0)" />
 
+        <TextView
+            android:id="@+id/port_status"
+            android:text="串口状态：关闭"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
