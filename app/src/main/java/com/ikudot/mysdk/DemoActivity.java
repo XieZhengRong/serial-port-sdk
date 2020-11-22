@@ -1,6 +1,7 @@
 package com.ikudot.mysdk;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -11,8 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ikudot.mysdk.databinding.DemoBinding;
 import com.ikudot.serialportlibrary.SerialManager;
 import com.ikudot.serialportlibrary.comn.message.IMessage;
+import com.ikudot.serialportlibrary.comn.message.RecvMessage;
 import com.ikudot.serialportlibrary.util.Cmd;
+import com.ikudot.serialportlibrary.util.StringUtils;
 import com.ikudot.serialportlibrary.util.ToastUtil;
+import com.licheedev.hwutils.ByteUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -54,7 +58,7 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     public void removeSkin(View view) {
-        SerialManager.getInstance().clearTare("FAECAA1044");
+        SerialManager.getInstance().clearTare();
     }
 
     public void backSkin(View view) {
@@ -117,11 +121,44 @@ public class DemoActivity extends AppCompatActivity {
     public void onMessageEvent(IMessage message) {
         // 收到时间，刷新界面
         ToastUtil.show(this, message.getMessage());
+        if (message instanceof RecvMessage) {
+            Log.d(TAG, "onMessageEvent: " + message.getMessage());
+            //处理接收串口数据后逻辑
+            String messageStr = message.getMessage().split("：")[1];
+            if (messageStr.length() % 2 != 0) return;
+            String[] strings = StringUtils.split(messageStr);
+            if (strings[0].equals(Cmd.RECEIVE_START) && strings[strings.length - 1].equals(Cmd.END)) {
+                //判断返回操作性类型
+                switch (strings[2]) {
+                    case Cmd.GET_WEIGHT: {
+                        //万位
+                        String w = ByteUtil.hexStr2decimal(strings[4]) + "";
+                        //千位
+                        String k = ByteUtil.hexStr2decimal(strings[5]) + "";
+                        //百位
+                        String h = ByteUtil.hexStr2decimal(strings[6]) + "";
+                        //十位
+                        String t = ByteUtil.hexStr2decimal(strings[7]) + "";
+                        //个位
+                        String l = ByteUtil.hexStr2decimal(strings[8]) + "";
+
+                        String result = w + k + h + t + l;
+                        //判断数值正负
+                        if (strings[3].equals(Cmd.NEGATIVE)) {
+                            result = "-" + result;
+                        }
+                        float result2 = Float.parseFloat(result)/1000;
+                        binding.weight.setText(result2+"KG");
+                    }
+                    break;
+                }
+            }
+        }
     }
 
     public void openSerialPort(View view) {
 //        String path = binding.edit.getText().toString();
-        String path = "ttyMT3";
+        String path = "ttyS3";
 
         mOpened = SerialManager.getInstance().openSerialPort(path, "115200");
         if (mOpened) {

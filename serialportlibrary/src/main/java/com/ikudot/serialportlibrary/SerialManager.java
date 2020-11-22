@@ -55,10 +55,9 @@ public class SerialManager {
     }
     /**
      * 去皮
-     * @param weight 皮重,单位克（g）
      */
-    public void clearTare(String weight){
-        SerialPortManager.instance().sendCommand(Cmd.generateCmdWithWeight(Cmd.REMOVE_SKIN,weight));
+    public void clearTare(){
+        SerialPortManager.instance().sendCommand(Cmd.generateCmd(Cmd.REMOVE_SKIN));
     }
     public void setUnit(String unit) {
         SerialPortManager.instance().sendCommand(Cmd.generateCmdWithData(Cmd.SET_UNIT, unit));

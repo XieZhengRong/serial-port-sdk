@@ -33,6 +33,10 @@ public class Cmd {
     public static final String SUCCESS = "1a";
     //失败
     public static final String FAIL = "5a";
+    //正数
+    public static final String POSITIVE = "20";
+    //负数
+    public static final String NEGATIVE = "2d";
 
     public static String generateCmd(String cmd) {
         //0x68 0x0a 0x03 0xaa 0xaa 0xaa 0xaa 0xaa 0xff 0xf8

@@ -90,6 +90,13 @@
                 android:layout_height="wrap_content"
                 android:onClick="checkRadio"
                 android:text="市斤" />
+            <RadioButton
+                android:id="@+id/g_radio"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:onClick="checkRadio"
+                android:text="克" />
         </LinearLayout>
 
         <LinearLayout
@@ -106,6 +113,9 @@
                 android:text="获取重量" />
 
             <TextView
+                android:id="@+id/weight"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:text="0.00kg"
