@@ -1,131 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="请输入串口名称(ttyMT3、ttyMT2、ttyMT1、ttyMT0)" />
-
-        <TextView
-            android:id="@+id/port_status"
-            android:text="串口状态：关闭"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="openSerialPort"
-            android:text="打开串口" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="closeSerialPort"
-            android:text="关闭串口" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="connectTable"
-            android:text="连接表头" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="reset"
-            android:text="置零" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="removeSkin"
-            android:text="去皮" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="backSkin"
-            android:text="回皮" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="backHair"
-            android:text="回毛" />
+        android:layout_weight="2"
+        android:paddingStart="20dp"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <Button
-
-                android:layout_width="0dp"
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="setUnit"
-                android:text="设置单位" />
+                android:hint="请输入串口名称(ttyMT3、ttyMT2、ttyMT1、ttyMT0)" />
 
-            <RadioButton
-                android:id="@+id/kg_radio"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/port_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:text="串口状态：关闭"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:onClick="openSerialPort"
+                    android:text="打开串口"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:onClick="closeSerialPort"
+                    android:text="关闭串口"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:onClick="removeSkin"
+                    android:text="去皮" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:onClick="connectTable"
+                    android:text="连接表头" />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:onClick="reset"
+                    android:text="置零" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:onClick="backSkin"
+                    android:text="回皮" />
+
+                <TextView
+                    android:id="@+id/skin_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="皮重：0.00KG"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="21sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:onClick="backHair"
+                    android:text="回毛" />
+
+                <TextView
+                    android:id="@+id/hair_weight"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:textSize="21sp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:text="毛重：0.00KG"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:onClick="checkRadio"
-                android:text="公斤" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/half_kg_radio"
-                android:layout_width="wrap_content"
+                <Button
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_weight="1"
+                    android:onClick="setUnit"
+                    android:text="设置单位" />
 
+                    <LinearLayout
+                        android:layout_marginStart="10dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <RadioButton
+                            android:id="@+id/kg_radio"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:textSize="21sp"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:onClick="checkRadio"
+                            android:text="公斤" />
+
+                        <RadioButton
+                            android:textSize="21sp"
+                            android:id="@+id/half_kg_radio"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkRadio"
+                            android:text="市斤" />
+
+                        <RadioButton
+                            android:textSize="21sp"
+                            android:id="@+id/g_radio"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkRadio"
+                            android:text="克" />
+                    </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="checkRadio"
-                android:text="市斤" />
-            <RadioButton
-                android:id="@+id/g_radio"
-                android:layout_width="wrap_content"
+                android:orientation="horizontal">
 
-                android:layout_height="wrap_content"
-                android:onClick="checkRadio"
-                android:text="克" />
-        </LinearLayout>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="66dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:onClick="getWeight"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                    android:text="获取重量" />
 
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-
-                android:layout_weight="1"
-                android:onClick="getWeight"
-                android:text="获取重量" />
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/weight"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="净重：0.00kg"
+                    android:gravity="center"
+                    android:textSize="21sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/weight"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="0.00kg"
-                android:textAlignment="center" />
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:alpha="0.3"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
 
         <TextView
-            android:id="@+id/message"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:text="收到的指令"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:translationZ="1dp" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/receipt_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </ScrollView>
 
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>

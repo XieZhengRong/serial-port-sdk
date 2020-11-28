@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.ikudot.mysdk",
+  "applicationId": "com.android.scale",
   "variantName": "processReleaseResources",
   "elements": [
     {
