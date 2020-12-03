@@ -41,6 +41,7 @@ public class DemoActivity extends AppCompatActivity {
             binding.portStatus.setText("串口状态：关闭");
         }
     }
+
     public void closeSerialPort(View view) {
         SerialManager.getInstance().close();
         mOpened = false;
@@ -49,39 +50,52 @@ public class DemoActivity extends AppCompatActivity {
     }
 
     public void connectTable(View view) {
-        SerialManager.getInstance().connect();
+        if (SerialManager.getInstance().isOpenPort()) {
+            SerialManager.getInstance().connect();
+        } else {
+            ToastUtil.show(this, "串口未打开");
+        }
     }
 
     public void reset(View view) {
-        SerialManager.getInstance().zeroClear();
+        if (SerialManager.getInstance().isOpenPort()) {
+            SerialManager.getInstance().zeroClear();
+        } else {
+            ToastUtil.show(this, "串口未打开");
+        }
+
     }
 
     public void removeSkin(View view) {
-
-        SerialManager.getInstance().clearTare();
-
+        if (SerialManager.getInstance().isOpenPort()) {
+            SerialManager.getInstance().clearTare();
+        } else {
+            ToastUtil.show(this, "串口未打开");
+        }
     }
 
     public void backSkin(View view) {
-
-
-        SerialManager.getInstance().backSkin();
-
-
+        if (SerialManager.getInstance().isOpenPort()) {
+            SerialManager.getInstance().backSkin();
+        } else {
+            ToastUtil.show(this, "串口未打开");
+        }
     }
 
     public void backHair(View view) {
-
-        SerialManager.getInstance().backHair();
-
+        if (SerialManager.getInstance().isOpenPort()) {
+            SerialManager.getInstance().backHair();
+        } else {
+            ToastUtil.show(this, "串口未打开");
+        }
     }
 
     public void getWeight(View view) {
-
-
-        SerialManager.getInstance().getWeight();
-
-
+        if (SerialManager.getInstance().isOpenPort()) {
+            SerialManager.getInstance().getWeight();
+        } else {
+            ToastUtil.show(this, "串口未打开");
+        }
     }
 
     @Override
@@ -96,16 +110,21 @@ public class DemoActivity extends AppCompatActivity {
      * @param view
      */
     public void setUnit(View view) {
-        if (binding.kgRadio.isChecked()) {
-            //公斤
-            SerialManager.getInstance().setUnit(this, Cmd.SET_KG);
-        } else if (binding.halfKgRadio.isChecked()) {
-            //市斤
-            SerialManager.getInstance().setUnit(this, Cmd.SET_HALF_KG);
-        } else if (binding.gRadio.isChecked()) {
-            //克
-            SerialManager.getInstance().setUnit(this, Cmd.SET_G);
+        if (SerialManager.getInstance().isOpenPort()) {
+            if (binding.kgRadio.isChecked()) {
+                //公斤
+                SerialManager.getInstance().setUnit(this, Cmd.SET_KG);
+            } else if (binding.halfKgRadio.isChecked()) {
+                //市斤
+                SerialManager.getInstance().setUnit(this, Cmd.SET_HALF_KG);
+            } else if (binding.gRadio.isChecked()) {
+                //克
+                SerialManager.getInstance().setUnit(this, Cmd.SET_G);
+            }
+        } else {
+            ToastUtil.show(this, "串口未打开");
         }
+
     }
 
     public void checkRadio(View view) {
@@ -237,7 +256,7 @@ public class DemoActivity extends AppCompatActivity {
                     }
                     break;
                 }
-                binding.receiptOrder.setText(String.format("%s\n%s(%s)", binding.receiptOrder.getText().toString(), messageStr,isSuccessStr));
+                binding.receiptOrder.setText(String.format("%s\n%s(%s)", binding.receiptOrder.getText().toString(), messageStr, isSuccessStr));
 
             }
         }

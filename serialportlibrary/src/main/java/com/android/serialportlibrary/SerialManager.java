@@ -12,6 +12,7 @@ public class SerialManager {
     private static SerialManager instance;
     private final static String MESSAGE = "MESSAGE";
     private final static String UNIT = "UNIT";
+    private boolean isOpen = false;//是否打开了串口
 
     private SerialManager() {
     }
@@ -28,13 +29,22 @@ public class SerialManager {
     }
 
     /**
+     * 是否打开了串口
+     * @return
+     */
+    public boolean isOpenPort(){
+        return isOpen;
+    }
+
+    /**
      * @param name      串口名称
      * @param bauterate 波特率
      * @return 是否成功打开串口
      */
     public boolean openSerialPort(String name, String bauterate) {
-        Device mDevice = new Device("/dev/" + name, "115200");
-        return SerialPortManager.instance().open(mDevice) != null;
+        Device mDevice = new Device("/dev/" + name, bauterate);
+        isOpen = SerialPortManager.instance().open(mDevice) != null;
+        return isOpen;
     }
 
     /**

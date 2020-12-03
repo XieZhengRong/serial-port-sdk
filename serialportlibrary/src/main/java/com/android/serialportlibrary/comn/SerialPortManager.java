@@ -2,6 +2,8 @@ package com.android.serialportlibrary.comn;
 
 import android.os.HandlerThread;
 import android.serialport.SerialPort;
+import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.serialportlibrary.comn.message.LogManager;
 import com.android.serialportlibrary.comn.message.SendMessage;
@@ -61,6 +63,10 @@ public class SerialPortManager {
      * @return
      */
     public SerialPort open(String devicePath, String baudrateString) {
+        if (TextUtils.isEmpty(devicePath)) {
+            Log.d(TAG, "串口号不能为空");
+            return null;
+        }
         if (mSerialPort != null) {
             close();
         }
@@ -80,7 +86,7 @@ public class SerialPortManager {
             mSendScheduler = AndroidSchedulers.from(mWriteThread.getLooper());
 
             return mSerialPort;
-        } catch (Throwable tr) {
+        } catch (Exception tr) {
             LogPlus.e(TAG, "打开串口失败", tr);
             close();
             return null;
