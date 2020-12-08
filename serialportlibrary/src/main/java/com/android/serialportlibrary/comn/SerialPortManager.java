@@ -161,7 +161,6 @@ public class SerialPortManager {
      */
     public void sendCommand(final String command) {
 
-        // TODO: 2018/3/22  
         LogPlus.i("发送命令：" + command);
 
         byte[] bytes = ByteUtil.hexStr2bytes(command);

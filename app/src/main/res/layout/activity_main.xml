@@ -1,132 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="30dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="30dp"
-    android:layout_marginBottom="20dp"
-    android:background="@drawable/black_border"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
-
-        <com.android.scale.AutoScaleTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="30dp"
-            android:text="设置"
-            android:textColor="@color/black"
-            android:textSize="28sp"
-            app:minTextSize="11sp" />
-
-        <com.android.scale.AutoScaleTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="沃立表头SDK-Demo演示"
-            android:textColor="@color/black"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            app:minTextSize="16sp" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        android:layout_weight="1"
-        android:background="@drawable/black_border">
-
-        <Spinner
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="100dp" />
-
-        <ImageView
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="20dp"
-            android:src="@drawable/logo" />
-    </RelativeLayout>
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        tools:context=".MainActivity">
 
-        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <com.android.scale.AutoScaleTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:text="设置"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:minTextSize="11sp" />
+
+            <com.android.scale.AutoScaleTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="沃立表头SDK-Demo演示"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:minTextSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/black_border">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:layout_marginStart="20dp"
+                android:background="@drawable/selector_spinner_default">
+
+                <Spinner
+
+                    android:id="@+id/devicesSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:spinnerMode="dropdown" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/logo" />
+        </RelativeLayout>
 
         <LinearLayout
-            android:background="@drawable/black_border"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="100dp"
-            android:layout_weight="2"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="5"
+
+            android:orientation="horizontal">
+
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_weight="2"
+                android:background="@drawable/black_border"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1.9"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/half_kg_radio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:text="市斤"
+                        android:textSize="28sp" />
+
+                    <RadioButton
+                        android:id="@+id/kg_radio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:checked="true"
+                        android:text="公斤"
+                        android:textSize="28sp" />
+
+                    <com.android.scale.AutoScaleTextView
+                        android:id="@+id/weight_result"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="25dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="0.00kg"
+                        android:textColor="@color/black"
+                        android:textSize="110sp"
+                        app:minTextSize="25sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/option_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        >
+
+                        <Button
+                            android:id="@+id/skin"
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:text="去皮"
+                            android:textColor="@color/black"
+                            android:textSize="23sp" />
+
+                        <Button
+                            android:id="@+id/clear_zero"
+
+                            android:layout_width="0dp"
+
+                            android:layout_height="66dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_weight="1"
+                            android:text="归零"
+                            android:textColor="@color/black"
+                            android:textSize="23sp" />
+
+
+                        <Button
+                            android:id="@+id/get_weight"
+
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+
+                            android:layout_marginStart="20dp"
+                            android:layout_weight="1"
+                            android:text="取重"
+                            android:textColor="@color/black"
+                            android:textSize="23sp" />
+
+                        <Button
+                            android:id="@+id/switch_weight"
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_weight="1"
+                            android:text="净重"
+                            android:textColor="@color/black"
+                            android:textSize="23sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_weight="1"
+                            android:enabled="false"
+                            android:textSize="23sp" />
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_weight="1"
+                            android:textSize="23sp" />
+
+                        <RelativeLayout
+                            android:layout_marginStart="20dp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/selector_spinner_default">
+
+                            <Spinner
+                                android:id="@+id/mode_spinner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:spinnerMode="dropdown" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
+                android:background="@drawable/log_black_border"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <TextView
+                    android:id="@+id/log"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="市斤"
-                    android:textSize="35sp" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
-                    android:text="公斤"
-                    android:textSize="35sp" />
-
-                <com.android.scale.AutoScaleTextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="25dp"
-                    android:layout_weight="1"
-                    android:gravity="end|center_vertical"
-                    android:text="0.00kg"
-                    android:textColor="@color/black"
-                    android:textSize="70sp"
-                    app:minTextSize="25sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2">
-
-            </LinearLayout>
-
+                    android:textColor="@color/black" />
+            </ScrollView>
         </LinearLayout>
-        <ScrollView
-            android:layout_marginEnd="100dp"
-            android:background="@drawable/black_border"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-
-        </ScrollView>
     </LinearLayout>
-</LinearLayout>
+</FrameLayout>

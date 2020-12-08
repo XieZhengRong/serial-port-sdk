@@ -19,6 +19,20 @@ public class Cmd {
     public static final String BACK_SKIN = "11";
     //回毛
     public static final String BACK_HAIR = "12";
+    /**
+     * 设置模式 指令:61
+     * 01:连续发送（主动发送）*默认*
+     * 02:稳定后连续发送（主动发送）
+     * 03:稳定后单次发送（被动发送）
+     * 04:归零后稳定单次发送（被动发送）
+     * 05:按键发送（被动发送，一键上传）
+     */
+    public static final String SET_MODE = "61";
+    public static final String MODE_CONTINUE_TRIGGER = "01";
+    public static final String MODE_STABLE_CONTINUE_TRIGGER = "02";
+    public static final String MODE_STABLE_SINGLE_TRIGGER = "03";
+    public static final String MODE_ZERO_STABLE_SINGLE_TRIGGER = "04";
+    public static final String MODE_SINGLE_TRIGGER = "05";
     //设定单位为公斤
     public static final String SET_KG = "0a";
     //设定单位为市斤

@@ -42,7 +42,7 @@ public class SerialManager {
      * @return 是否成功打开串口
      */
     public boolean openSerialPort(String name, String bauterate) {
-        Device mDevice = new Device("/dev/" + name, bauterate);
+        Device mDevice = new Device( name, bauterate);
         isOpen = SerialPortManager.instance().open(mDevice) != null;
         return isOpen;
     }
@@ -93,24 +93,27 @@ public class SerialManager {
      * @param unit    单位 Cmd.SET_KG(千克)s Cmd.SET_HALF_KG（市斤） Cmd.SET_G（克）
      */
     public void setUnit(Context context, String unit) {
-        SharedPreferences.Editor editor = context.getSharedPreferences(MESSAGE, Context.MODE_PRIVATE).edit();
-        //记住当前单位
-        switch (unit) {
-            case Cmd.SET_KG: {
-                editor.putString(UNIT, "KG");
+        if (isOpen) {
+            SharedPreferences.Editor editor = context.getSharedPreferences(MESSAGE, Context.MODE_PRIVATE).edit();
+            //记住当前单位
+            switch (unit) {
+                case Cmd.SET_KG: {
+                    editor.putString(UNIT, "KG");
+                }
+                break;
+                case Cmd.SET_HALF_KG: {
+                    editor.putString(UNIT, "HALF_KG");
+                }
+                break;
+                case Cmd.SET_G: {
+                    editor.putString(UNIT, "G");
+                }
+                break;
             }
-            break;
-            case Cmd.SET_HALF_KG: {
-                editor.putString(UNIT, "HALF_KG");
-            }
-            break;
-            case Cmd.SET_G: {
-                editor.putString(UNIT, "G");
-            }
-            break;
+            editor.apply();
+            SerialPortManager.instance().sendCommand(Cmd.generateCmdWithData(Cmd.SET_UNIT, unit));
         }
-        editor.apply();
-        SerialPortManager.instance().sendCommand(Cmd.generateCmdWithData(Cmd.SET_UNIT, unit));
+
     }
 
     /**
@@ -120,6 +123,13 @@ public class SerialManager {
         if (null != SerialPortManager.instance()) {
             SerialPortManager.instance().close();
         }
+    }
+    /**
+     * 设置发送模式
+     * @param mode 发送模式
+     */
+    public void setMode(String mode) {
+        SerialPortManager.instance().sendCommand(Cmd.generateCmdWithData(Cmd.SET_MODE, mode));
     }
 
     /**
